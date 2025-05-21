@@ -4,9 +4,9 @@
   "main": "expo/AppEntry.js",
   "scripts": {
     "start:server": "ts-node ./server/mock.ts",
-    "start": "EXPO_PUBLIC_SERVER_IP=$(./scripts/local-ip.sh) EXPO_PUBLIC_SERVER_PORT=3003 expo start -c",
-    "android": "EXPO_PUBLIC_SERVER_IP=$(./scripts/local-ip.sh) EXPO_PUBLIC_SERVER_PORT=3003 expo start --android",
-    "ios": "EXPO_PUBLIC_SERVER_IP=$(./scripts/local-ip.sh) EXPO_PUBLIC_SERVER_PORT=3003 expo start --ios",
+    "start": "expo start -c",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
     "check:format": "prettier --check ./",
     "check:lint": "eslint ./",
     "fix:format": "prettier --write ./"
@@ -20,6 +20,7 @@
     "expo": "~51.0.28",
     "expo-status-bar": "~1.12.1",
     "express": "^4.21.1",
+    "jotai": "^2.12.4",
     "react": "18.2.0",
     "react-dom": "^18.2.0",
     "react-native": "0.74.5",
