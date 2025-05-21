@@ -43,6 +43,7 @@ export async function getTopRatedMoviesQuery(): Promise<Movie[]> {
   // TODO: implement on backend side
   try {
     const url = new URL('/movies', apiUrl);
+    console.log("getTopRatedMoviesQuery: ", url);
     const request = await fetch(url);
     if (!request.ok) return [];
 
