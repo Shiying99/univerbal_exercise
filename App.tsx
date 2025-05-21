@@ -6,6 +6,7 @@ import TopRatedScreen from '@/screens/top-rated';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { appRouteNames } from '@/routes';
 import { z } from 'zod';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 const Tab = createBottomTabNavigator();
 
@@ -25,7 +26,26 @@ export default function App() {
     <NavigationContainer>
       <StatusBar style="auto" animated />
 
-      <Tab.Navigator initialRouteName={appRouteNames.root}>
+      <Tab.Navigator
+        initialRouteName={appRouteNames.root}
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+
+            if (route.name === 'tab-home') {
+              iconName = focused ? 'home' : 'home-outline';
+            } else if (route.name === 'tab-top-rated') {
+              iconName = focused ? 'stats-chart' : 'stats-chart-outline';
+            } else if (route.name === 'tab-favorites') {
+              iconName = focused ? 'heart-circle' : 'heart-circle-outline';
+            }
+
+            return <Ionicons name={iconName} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: 'tomato',
+          tabBarInactiveTintColor: 'gray',
+        })}
+      >
         <Tab.Screen
           name="tab-home"
           component={HomeScreen}
