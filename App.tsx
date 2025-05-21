@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { appRouteNames } from '@/routes';
 import { z } from 'zod';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { Text, StyleSheet, ScrollView } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -48,26 +49,42 @@ export default function App() {
               />
             );
           },
-          tabBarActiveTintColor: 'cornflowerblue',
+          tabBarActiveTintColor: 'tomato',
           tabBarInactiveTintColor: 'gray',
         })}
       >
         <Tab.Screen
           name="tab-home"
           component={HomeScreen}
-          options={{ tabBarLabel: () => null }}
+          options={{
+            title: 'Home',
+            tabBarLabel: 'Home',
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
         />
         <Tab.Screen
           name="tab-top-rated"
           component={TopRatedScreen}
-          options={{ tabBarLabel: () => null }}
+          options={{ title: 'Top Rated', tabBarLabel: 'Top Rated' }}
         />
         <Tab.Screen
           name="tab-favorites"
           component={FavoritesScreen}
-          options={{ tabBarLabel: () => null }}
+          options={{ title: 'Favorites', tabBarLabel: 'Favorites' }}
         />
       </Tab.Navigator>
     </NavigationContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  title: {
+    backgroundColor: 'fl#f4511ex',
+  },
+});
