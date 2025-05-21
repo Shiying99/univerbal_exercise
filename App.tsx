@@ -37,12 +37,18 @@ export default function App() {
             } else if (route.name === 'tab-top-rated') {
               iconName = focused ? 'stats-chart' : 'stats-chart-outline';
             } else if (route.name === 'tab-favorites') {
-              iconName = focused ? 'heart-circle' : 'heart-circle-outline';
+              iconName = focused ? 'heart' : 'heart-outline';
             }
 
-            return <Ionicons name={iconName} size={size} color={color} />;
+            return (
+              <Ionicons
+                name={iconName as keyof typeof Ionicons.glyphMap}
+                size={size}
+                color={color}
+              />
+            );
           },
-          tabBarActiveTintColor: 'tomato',
+          tabBarActiveTintColor: 'cornflowerblue',
           tabBarInactiveTintColor: 'gray',
         })}
       >
