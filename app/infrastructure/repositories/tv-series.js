@@ -43,5 +43,5 @@ export async function getTopRatedTvSeriesQuery() {
   const json = await request.json();
 
   // top rated has to have a rating above 75%
-  return json.filter((it) => it.rating > 60);
+  return json.filter((it) => it.rating > 75 && it.rating < 100);
 }
