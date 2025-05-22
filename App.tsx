@@ -71,20 +71,34 @@ export default function App() {
         <Tab.Screen
           name="tab-top-rated"
           component={TopRatedScreen}
-          options={{ title: 'Top Rated', tabBarLabel: 'Top Rated' }}
+          options={{
+            title: 'Top Rated',
+            tabBarLabel: 'Top Rated',
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
         />
         <Tab.Screen
           name="tab-favorites"
           component={FavoritesScreen}
-          options={{ title: 'Favorites', tabBarLabel: 'Favorites' }}
+          options={{
+            title: 'Favorites',
+            tabBarLabel: 'Favorites',
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
         />
       </Tab.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  title: {
-    backgroundColor: 'fl#f4511ex',
-  },
-});

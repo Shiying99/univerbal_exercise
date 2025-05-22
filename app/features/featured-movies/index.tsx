@@ -24,6 +24,7 @@ export function FeaturedMovies({ style }: Props): JSX.Element | null {
           <ScrollView horizontal style={styles.list}>
             {stateLoadable.data.map((it, index) => (
               <Poster
+                src=""
                 key={index}
                 isFavorite
                 title={it.title}
@@ -42,6 +43,7 @@ const styles = StyleSheet.create({
 
   title: {
     marginBottom: 20,
+    marginLeft: 10,
   },
 
   list: {},

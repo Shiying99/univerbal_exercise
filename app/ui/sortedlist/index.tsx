@@ -12,14 +12,16 @@ import { Rating } from '../rating';
 
 type ListProps = {
   style?: StyleProp<ViewStyle>;
-  data: { id: string }[];
+  data: { id: string; rating: number }[];
 };
 
-export function List({ style, data }: ListProps): ReactNode {
+export default function SortedList({ style, data }: ListProps): ReactNode {
+  const sortedData = [...data].sort((a, b) => b.rating - a.rating);
+
   return (
     <FlatList
       style={style}
-      data={data}
+      data={sortedData}
       keyExtractor={(it) => it.id}
       renderItem={(it) => {
         return (
